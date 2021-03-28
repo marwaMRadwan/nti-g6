@@ -23,3 +23,21 @@ addCustomer= function(){
     customers.push(customer)
     setCustomers(customers)
 }
+const createNewElement = function(parent, tagName, text=null){
+    element = document.createElement(tagName)
+    if(text) element.innerText = text
+    parent.appendChild(element)
+    return element
+}
+const showCustomers= function(){
+    customers = getCustomers()
+    tableBody = document.querySelector('#customersTable')
+    tableHeads = ['id','name', 'balance']
+    customers.forEach(customer => {
+        tr = createNewElement(tableBody, 'tr')
+        tableHeads.forEach(head=>{
+            createNewElement(tr, 'td', customer[head])
+        })
+    });
+}
+showCustomers()
