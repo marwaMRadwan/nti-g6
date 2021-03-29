@@ -10,42 +10,23 @@
 </head>
 <body class="container">
     <section class="my-3">
-        <button class="btn btn-primary">show add form</button>
+        <button class="btn btn-primary" id="formButton">
+            show add form
+        </button>
     </section>
-    <section class="border border-primary border-3 my-3 p-3 rounded">
+    <section class="border border-primary border-3 my-3 p-3 rounded d-none" id="formSection">
         <form class="form-group">
-            <input class="form-control my-2" placeholder="task title">
-            <select class="form-control my-2">
-                <option>type 1</option>
-                <option>type 1</option>
-                <option>type 1</option>
+            <input class="form-control my-2" placeholder="task title" name="taskTitle">
+            <select class="form-control my-2" id="taskTypes" name="taskTypes">
             </select>
-            <input class="form-control my-2" placeholder="task description">
+            <input class="form-control my-2" placeholder="task description" name="taskDescription">
             <button class="btn btn-primary my-2">submit</button>
         </form>
     </section>
     <section class="my-3">
         <h3 class="text-center">All Tasks</h3>
-        <div class="alert alert-danger">No Tasks Found</div>
-        <div class="row">
-            <div class="col-4">
-                <div class="p-3 bg-success">
-                    <h4>title</h4>
-                    <h5>type</h5>
-                    <p>description</p>
-                    <button class="btn btn-danger">delete</button>
-                    <button class="btn btn-primary">change status</button>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="p-3 bg-warning">
-                    <h4>title</h4>
-                    <h5>type</h5>
-                    <p>description</p>
-                    <button class="btn btn-danger">delete</button>
-                    <button class="btn btn-primary">change status</button>
-                </div>
-            </div>
+        <div class="row" id="allTasks">
+            <div class="alert alert-danger" id="noTasks">No Tasks Found</div>
         </div>
     </section>
     <script src="todo.js"></script>
