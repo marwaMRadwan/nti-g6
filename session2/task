@@ -1,0 +1,7 @@
+bank customers 
+=> add name, balance, accNum
+=> delete
+=> withdraw
+=> add balance
+=> show all
+=> filter
