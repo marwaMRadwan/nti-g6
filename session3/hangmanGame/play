@@ -1,0 +1,13 @@
+hello   => l +2 0 3
+new game => score 0 , lifes 5
+
+makeguess => +1 scroe or -1 lifes   
+        char score lifes
+---a---  a    1      0 
+         z    0      -1
+
+word = hello
+lifes 5
+
+win = score = word.length
+lifes = 0 lose
