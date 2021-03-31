@@ -15,4 +15,25 @@ yargs.command({
     }
 })
 
+yargs.command({
+    command:'addBook',
+    describe:'add new book',
+    builder:{
+        name:{demandOption:true, type:'string'},
+        author:{demandOption:true, type:'string'},
+        category:{demandOption:true, type:'string'},
+        numOfPages:{demandOption:true, type:'number'}
+    },
+    handler:function(argv){
+        let book = {
+            name:argv.name, 
+            author:argv.author, 
+            category: argv.category, 
+            numOfPages:argv.numOfPages
+        }
+        myMethods.addNewBook(book)
+    }
+})
+
 yargs.argv
+
