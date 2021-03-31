@@ -1,0 +1,32 @@
+books 
+book => author , name , category, num of pages
+add book => name used before 
+edit book
+search book by part from title
+search book by category
+delete 
+show all books
+
+json file => file system 
+yargs 
+validate data 
+return colored in terminal
+
+fs
+validator
+chalk
+yargs
+
+
+
+read file => error 
+low mafesh file data=[]
+else data = file =>ay hbl (hvvghv) =>error
+low el galy msh json data = []
+
+data = file
+
+
+
+
+
