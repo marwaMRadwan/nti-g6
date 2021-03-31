@@ -1,11 +1,11 @@
 books 
-book => author , name , category, num of pages
-add book => name used before 
+book => author , name , category, num of pages => done
+add book => name used before  => done
 edit book
 search book by part from title
 search book by category
 delete 
-show all books
+show all books => done
 
 json file => file system 
 yargs 

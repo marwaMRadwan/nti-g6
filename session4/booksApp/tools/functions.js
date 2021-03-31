@@ -29,9 +29,28 @@ addNewBook = (book) =>{
         console.log('book added')
     }
 }
-
+removeBook = (name)=>{
+    const books = getAllBooks()
+    const index = books.findIndex(book=> book.name==name)
+    if(index==-1) return console.log('book not found')
+    else{
+        books.splice(index,1)
+        setAllBook(books)
+        console.log('deleted')
+    }
+}
+searchBook = (searchKey, searchType, t) =>{
+    const books = getAllBooks()
+    const data = books.filter(book=>{
+        if(t=="full") return book[searchType]==(searchKey)
+        else return book[searchType].includes(searchKey)
+    })
+    console.log(data)
+}
 module.exports = {
     getAllBooks,
     setAllBook,
-    addNewBook
+    addNewBook,
+    removeBook,
+    searchBook
 }

@@ -34,6 +34,27 @@ yargs.command({
         myMethods.addNewBook(book)
     }
 })
-
+yargs.command({
+    command:'removeBook',
+    describe:'remove book',
+    builder:{
+        name:{type:'string', demandOption:true}
+    },
+    handler: function(argv){
+        myMethods.removeBook(argv.name)
+    }
+})
+yargs.command({
+    command:'search',
+    describe:'search book',
+    builder:{
+        searchKey:{demandOption:true},
+        searchType:{demandOption:true},
+        t:{}
+    },
+    handler:function(argv){
+myMethods.searchBook(argv.searchKey, argv.searchType, argv.t)
+    }
+})
 yargs.argv
 

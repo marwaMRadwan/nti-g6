@@ -1,1 +1,3 @@
-[{"name":"my new book","author":"author 1","category":"web development","numOfPages":10},{"name":"my new book 2","author":"author 1","category":"web development","numOfPages":10}]
+[{"name":"my new book 2","author":"author 1","category":"web development","numOfPages":10},
+    {"name":"my new book 3","author":"author 1","category":"web development","numOfPages":10},
+    {"name":"my new book 3","author":"author 1","category":"web development","numOfPages":10}]
