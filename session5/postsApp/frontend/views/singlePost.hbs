@@ -1,7 +1,11 @@
 {{>header}}
 {{>nav}}
 <section class="container p-4 border border-danger border-3">
+    {{#if data.title}}
     <h3>{{data.title}}</h3>
     <h4>{{data.body}}</h4>
+    {{else}}
+    <div class="alert alert-danger"> no data found</div>
+    {{/if}}
 </section>
 {{>footer}}

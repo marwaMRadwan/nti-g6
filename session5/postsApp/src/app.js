@@ -37,7 +37,7 @@ app.get('/allPosts/:single', (req,res)=>{
 })
 //not found routes
 app.get('*',(req,res)=>{
-    res.send('404 error')
+    res.render('404')
 })
 //end of routes
 //run app on localhost
