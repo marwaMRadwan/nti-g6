@@ -1,7 +1,7 @@
 //require request to access api
 const request = require('request');
 //intiliza api common string
-let mainApi = 'https://jsonplaceholder.typicode.com/posts';
+const mainApi = 'https://jsonplaceholder.typicode.com/posts';
 //get all posts from api
 // const allPost = (callback) =>{
 //     request({url:mainApi, json:true},(err,{body})=>{
@@ -11,11 +11,12 @@ let mainApi = 'https://jsonplaceholder.typicode.com/posts';
 // }
 //get single post using id
 const singlePost = (callback, id=false) =>{
-    if(!id) mainApi+='/'+id
-    // else url = mainApi
-    request({url:mainApi, json:true},(err,{body})=>{
-        if(err) callback('error loading data', false)
-        else callback(false, body)
+    if(id) url = mainApi+'/'+id
+    else url = mainApi
+    console.log(mainApi)
+    request({url, json:true},(err,{body})=>{
+        if(err){ callback('error loading data', false)}
+        else {callback(false, body)}
     })
 }
 

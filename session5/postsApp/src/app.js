@@ -19,7 +19,26 @@ hbs.registerPartials(layoutsDir)
 //set public static folder
 app.use(express.static(publicDir))
 //routes
-
+app.get('', (req,res)=>{
+    res.render('home')
+})
+app.get('/allPosts', (req,res)=>{
+    apiRequests.singlePost((err, response)=>{
+        if(err) res.render('allposts', { err:err ,data:false })
+        else res.render('allposts', {err:false, data:response})
+    })
+})
+app.get('/allPosts/:single', (req,res)=>{
+    let id = req.params.single
+    apiRequests.singlePost((err, response)=>{
+        if(err) res.render('singlePost', { err:err ,data:false })
+        else res.render('singlePost', {err:false, data:response})
+    }, id)
+})
+//not found routes
+app.get('*',(req,res)=>{
+    res.send('404 error')
+})
 //end of routes
 //run app on localhost
 app.listen(PORT)

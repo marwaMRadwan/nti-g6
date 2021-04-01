@@ -1,0 +1,20 @@
+{{>header}}
+{{>nav}}
+<h2 class="text-center">All Posts</h2>
+<section class="container">
+<table class="table table-bordered">
+    <thead>
+        <th>title</th>
+        <th>link</th>
+    </thead>
+    <tbody>
+        {{#each data}}
+        <tr>
+            <td>{{this.title}}</td>
+            <td><a href="/allPosts/{{this.id}}" class="btn btn-success">more</a></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+</section>
+{{>footer}}
