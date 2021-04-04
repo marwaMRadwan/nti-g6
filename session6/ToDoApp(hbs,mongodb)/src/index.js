@@ -7,6 +7,7 @@ const publicDir = path.join(__dirname, '../public')
 const viewsDir = path.join(__dirname, '../design/views')
 const layouts = path.join(__dirname, '../design/layouts')
 const dbconnection = require('./utills/functions')
+const { ObjectID } = require('mongodb')
 app.set('view engine', 'hbs')
 app.set('views',viewsDir)
 hbs.registerPartials(layouts)
@@ -18,7 +19,7 @@ app.get('', (req,res)=>{
 })
 
 app.get('/add', (req,res)=>{
-    res.render('add')
+    res.render('add', {data:{title:'', description:''}})
 })
 
 app.post('/addData', (req, res)=>{
@@ -43,6 +44,34 @@ app.get('/showAll', (req,res)=>{
     })
 })
 
+app.get('/single/:id', (req,res)=>{
+    id = req.params.id
+    try{
+        dbconnection(db=>{
+            try{
+                db.collection('tasks').findOne({_id:new ObjectID(id)}, (err,data)=>{
+                    if(err) res.render('404', {error:'no data'})
+                    else res.render('singleData', {data})
+                })  
+            }
+            catch(e){ res.render('404', {error:'no data found'}) } 
+        })
+       
+    }
+    catch(e){ res.render('404', {error:'no data found'}) } 
+})
+app.get('/delete/:id', (req,res)=>{
+    id = req.params.id
+    
+    dbconnection(db=>{
+        db.collection('tasks').deleteOne({_id:new ObjectID(id)})
+        .then(()=>res.redirect('/showAll'))
+        .catch(()=>res.redirect('404', {error: 'cann\'t delete'}))
+    })    
+})
+app.get('/edit/:id', (req,res)=>{
+    res.render('add', {data:{title:'a', description:'b'}})
+})
 app.get('*', (req, res)=>{
     res.render('404', {error:'invalid url'})
 })

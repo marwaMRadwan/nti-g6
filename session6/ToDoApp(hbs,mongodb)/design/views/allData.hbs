@@ -15,9 +15,9 @@
         <td>{{this.title}}</td>
         <td>{{this.description}}</td>
         <td>
-        <a href="" class="m-1 btn btn-primary">show</a>
-        <a href="" class="m-1 btn btn-primary">delete</a>
-        <a href="" class="m-1 btn btn-primary">edit</a>
+        <a href="/single/{{this._id}}" class="m-1 btn btn-primary">show</a>
+        <a href="/delete/{{this._id}}" class="m-1 btn btn-primary">delete</a>
+        <a href="/edit/{{this._id}}" class="m-1 btn btn-primary">edit</a>
     </td>
     </tr>
     {{/each}}
