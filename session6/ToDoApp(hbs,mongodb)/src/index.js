@@ -6,6 +6,7 @@ const app = express()
 const publicDir = path.join(__dirname, '../public')
 const viewsDir = path.join(__dirname, '../design/views')
 const layouts = path.join(__dirname, '../design/layouts')
+const dbconnection = require('./utills/functions')
 app.set('view engine', 'hbs')
 app.set('views',viewsDir)
 hbs.registerPartials(layouts)
@@ -22,15 +23,27 @@ app.get('/add', (req,res)=>{
 
 app.post('/addData', (req, res)=>{
     data = req.body
-    console.log(data)
+    dbconnection(db=>{
+        if(!db) return console.log('fe error')
+        db.collection('tasks').insertOne(data, (err,data)=>{
+            if(err) console.log(err)
+            else console.log(data.insertedCount)
+        })
+    })
     res.redirect('showAll')
 })
 
 app.get('/showAll', (req,res)=>{
-    res.render('allData')
+    dbconnection(db=>{
+        if(!db) return res.send('404', {error: 'error in show data'})
+        db.collection('tasks').find().toArray((err, result)=>{
+            if(err) res.send('404', {error:err})
+            else res.render('allData',{data:result, len:result.length})
+        })
+    })
 })
 
 app.get('*', (req, res)=>{
-    res.render('404')
+    res.render('404', {error:'invalid url'})
 })
 app.listen(3000)

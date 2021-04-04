@@ -1,4 +1,31 @@
 {{>header}}
 {{>navbar}}
-
+{{#if len}}
+<table class="table table-stripped">
+<thead>
+    <th>_id</th>
+    <th>title</th>
+    <th>description</th>
+    <th>actions</th>
+</thead>
+<tbody>
+    {{#each data}}
+    <tr>
+        <td>{{this._id}}</td>
+        <td>{{this.title}}</td>
+        <td>{{this.description}}</td>
+        <td>
+        <a href="" class="m-1 btn btn-primary">show</a>
+        <a href="" class="m-1 btn btn-primary">delete</a>
+        <a href="" class="m-1 btn btn-primary">edit</a>
+    </td>
+    </tr>
+    {{/each}}
+</tbody>
+</table>
+{{else}}
+<div class="alert alert-danger">
+No Tasks Found
+</div>
+{{/if}}
 {{>footer}}
