@@ -3,3 +3,10 @@ form add data => json file => show all , edit, delete
 
 mongodb
 crud => express
+
+
+add button
+url ?data
+get data inside obj
+send obj file json
+redirect all data
