@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
-const User = mongoose.model('User', {
+const bcrypt = require('bcryptjs')
+const userSchema = new mongoose.Schema({
     name:{
         type:String,
         trim:true,
@@ -38,4 +39,13 @@ const User = mongoose.model('User', {
         default:false
     }
 })
+
+userSchema.pre('save', async function(){
+    console.log('pre save')
+    const user = this
+    if(user.isModified('password'))
+        user.password = await bcrypt.hash(user.password,10)
+    // console.log(this)
+})
+const User = mongoose.model('User', userSchema)
 module.exports = User
