@@ -24,4 +24,20 @@ router.post('/add',auth, async(req, res)=>{
     }
 })
 
+router.get('/allSec', auth, async(req,res)=>{
+    //populate
+    try{
+        await req.user.populate('userSec').execPopulate()
+        res.send(req.user.userSec)
+    }
+    catch(e){res.send({error:e.message})}
+})
+router.get('/allSec/:id', auth, async(req, res)=>{
+    try{
+        const _id=req.params.id
+        const single = await secModel.findOne({_id, owner:req.user._id})
+        res.send(single)
+    }
+    catch(e){res.send(e)}
+})
 module.exports=router

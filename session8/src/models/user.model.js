@@ -44,7 +44,6 @@ const userSchema = new mongoose.Schema({
     }]
 })
 
-
 userSchema.virtual('userSec',{
     ref:'Sec',
     localField:'_id',
