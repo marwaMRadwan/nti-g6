@@ -44,6 +44,12 @@ const userSchema = new mongoose.Schema({
     }]
 })
 
+
+userSchema.virtual('userSec',{
+    ref:'Sec',
+    localField:'_id',
+    foreignField:'owner'
+})
 userSchema.methods.toJSON = function(){
     const user = this.toObject()
     delete user.password
