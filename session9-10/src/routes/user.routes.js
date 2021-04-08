@@ -57,7 +57,7 @@ router.get('/user/activate/:id', async(req,res)=>{
     }
 })
 
-router.get('/user/deactivate/:id', async(req,res)=>{
+router.get('/user/deactivate/:id',auth, async(req,res)=>{
     try{
         const _id = req.params.id
         const user = await User.findById({_id})
@@ -81,10 +81,11 @@ router.get('/user/deactivate/:id', async(req,res)=>{
 
 router.post('/user/login', async(req,res)=>{
     try{
-        const user = await User.findByCredintials(req.body.email, req.body.password)        
+        const user = await User.findByCredintials(req.body.email, req.body.password) 
+        const token = await user.generateToken()       
         res.status(200).send({
         apiStatus:true,
-        data: {user},
+        data: {user, token},
         message:'activated'
     })
 }
@@ -97,5 +98,20 @@ catch(e){
 }
 
 })
+router.patch('/user/profile',auth, async(req,res)=>{
+    try{
+    reqEdits = Object.keys(req.body)
+    allowed = ['name', 'password']
+    isValidUpdates = reqEdits.every(r=> allowed.includes(r))
+    if(!isValidUpdates) throw new Error('invalid updates')
+    reqEdits.forEach(r => {
+    req.user[r] = req.body[r]       
+    });
+    await req.user.save()
+    res.send('edited')
+    }
+    catch(e){
 
+    }
+})
 module.exports=router

@@ -12,7 +12,7 @@ menu elements category, items[{
 }]
 resturants => name, type, tables [
     table:{
-        name, numOfSeats
+        table name, numOfSeats
     },
     rate
 ]

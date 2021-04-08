@@ -68,6 +68,12 @@ const userSchema = new mongoose.Schema({
     ]
 })
 
+userSchema.methods.toJSON = function(){
+    const user = this.toObject()
+    delete user.password
+    return user
+}
+
 userSchema.pre('save', async function(next){
     lastId = await User.findOne().sort({_id:-1})
 
@@ -90,6 +96,13 @@ userSchema.statics.findByCredintials = async(email, password)=>{
     if(!isValidPass) throw new Error('invalid password')
         
     return user
+}
+userSchema.methods.generateToken = async function (){
+    const user=this
+    const token = jwt.sign({_id:user._id.toString()}, process.env.JWTSECRET)
+    user.tokens = user.tokens.concat({token})
+    await user.save()
+    return token
 }
 const User = mongoose.model('User',userSchema)
 module.exports = User
