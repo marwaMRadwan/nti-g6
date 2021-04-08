@@ -3,7 +3,7 @@ const  validator = require('validator')
 const restSchema = new mongoose.Schema({
     restName:{type:String, unique:true, required:true},
     branches:[{
-        location:{
+        branch:{
             bName:{type:String, unique:true, trim:true},
             bTables:[{
                 table:{

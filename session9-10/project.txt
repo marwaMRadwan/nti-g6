@@ -36,3 +36,12 @@ mohamed, 5      5, 1
 
 
 
+add rest /add
+show all resturants /showAll
+/showAll/:restId
+/addBranch/:restId
+
+
+rId/allbranches
+rId/singleBranch/bId
+rId/singleBranch/bId/addTable

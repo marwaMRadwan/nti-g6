@@ -68,6 +68,11 @@ const userSchema = new mongoose.Schema({
     ]
 })
 
+userSchema.virtual('userResturants', {
+    ref:'Resturant',
+    localField: "_id",
+    foreignField:"owner"
+})
 userSchema.methods.toJSON = function(){
     const user = this.toObject()
     delete user.password
@@ -75,13 +80,14 @@ userSchema.methods.toJSON = function(){
 }
 
 userSchema.pre('save', async function(next){
-    lastId = await User.findOne().sort({_id:-1})
-
     user = this
+    if(!user.userId){
+        lastId = await User.findOne().sort({_id:-1})
+        if(!lastId) user.userId=1
+        else  user.userId = lastId.userId+1    
+    } 
     if(!user.userName) user.userName = user._id
     if(user.isModified('password')) user.password = await bcrypt.hash(user.password, 8)
-    if(!lastId) user.userId=1
-    else user.userId = lastId.userId+1
     next()
 })
 
