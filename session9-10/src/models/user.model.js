@@ -78,5 +78,18 @@ userSchema.pre('save', async function(next){
     else user.userId = lastId.userId+1
     next()
 })
+
+userSchema.statics.findByCredintials = async(email, password)=>{
+    
+    const user = await User.findOne({email})
+    if(!user) throw new Error('invalid email')
+
+    if(!user.status) throw new Error('please activate your account')
+
+    const isValidPass = await bcrypt.compare(password, user.password)
+    if(!isValidPass) throw new Error('invalid password')
+        
+    return user
+}
 const User = mongoose.model('User',userSchema)
 module.exports = User
