@@ -47,6 +47,7 @@ router.post('/resturant/addBranch/:id',auth, async(req,res)=>{
         if(!manager) throw new Error('invalid manager data')
         branchData = {bName:req.body.bName, manager: req.body.manager}
         resturant.branches.push({branch:branchData})
+        resturant.save()
         res.send({resturant})
     }
     catch(e){

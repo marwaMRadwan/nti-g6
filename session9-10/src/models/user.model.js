@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const jwt=require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const  validator = require('validator')
+const UserTypes = require('./userTypes.model')
 const userSchema = new mongoose.Schema({
     name:{
         type:String,
@@ -54,8 +55,9 @@ const userSchema = new mongoose.Schema({
         default:false
     },
     role:{
-        type:String,
-        required:true
+        type:mongoose.Schema.Types.ObjectId,
+        required:true,
+        ref: 'UserTypes'
     },
     userId:{
         type:Number,

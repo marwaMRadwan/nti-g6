@@ -1,9 +1,6 @@
 resturant directory
-
 user=>  name, bithday, email, phone, area, password, image, discount level, 
             username, status, role
-
-
 all resturant => tables book , order , complete order
 discounts => name, discount, type (promo, level)
 emp roles => type , [avaliable] 
@@ -26,22 +23,32 @@ marwa, development,
 mohamed, development, marwa
 hany, design , 
 
-
 emp , mangers
 marwa,1   
 mohamed, 5      5, 1
-
-
-
-
-
 
 add rest /add
 show all resturants /showAll
 /showAll/:restId
 /addBranch/:restId
 
-
 rId/allbranches
 rId/singleBranch/bId
 rId/singleBranch/bId/addTable
+
+
+routes                            user types =>developer =>0, admin =1, seAdmin=2, user=3
+add/user => 1
+edit=> 1, me
+delete => 1
+show => 1,2
+add/rest =>2
+add/table =>1
+add/reservation =>3
+add/...
+
+
+
+
+
+routes , usersTypes
