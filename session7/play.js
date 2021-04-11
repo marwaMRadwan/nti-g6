@@ -48,7 +48,7 @@ const User = mongoose.model('User', {
     password:{
         type:String,
         trim:true,
-        // lowerCase:true,
+        // lowercase:true,
         required:true,
         match:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
         validate(value){
@@ -60,6 +60,10 @@ const User = mongoose.model('User', {
         validate(value){
             if(value<21) throw new Error('minimum 21 years')
         }
+    },
+    status:{
+        type:Boolean,
+        default:false
     }
 })
 

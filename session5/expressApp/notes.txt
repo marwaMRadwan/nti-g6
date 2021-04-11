@@ -1,0 +1,27 @@
+session 1:
+review js basics
+session 2:
+js dom
+-> bank crud system (add, delete, add balance, withdaw, show all, filter data)
+session 3:
+promises, async and await , callback , api fetch, create hangman game
+-> task : complete hangman game
+session 4: 
+intro node, node built-in packages,import our files, argv, yargs, npm packages, api request
+--> task : create yargs to call multi api on user input
+session 5:
+=> extension jsonview
+=> npm init
+npm i -g nodemon
+npm i express
+http request - express - routes - hbs files (views, partials, static files, send, sendfile, render)
+
+application posts
+all posts => table => link redirect single
+single post => post details
+
+navbar home, all
+footer => copy 
+bootstrap
+
+

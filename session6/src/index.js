@@ -11,7 +11,8 @@ app.set('view engine', 'hbs')
 app.set('views',viewsDir)
 hbs.registerPartials(layouts)
 app.use(express.static(publicDir))
-app.use(express.urlencoded())
+app.use(express.urlencoded())  //form => body 
+//app.use(express.json()) => body api
 //routes
 // app.get('/new', (req,res)=>{
 // fs.writeFileSync('src/data.json', '[]')

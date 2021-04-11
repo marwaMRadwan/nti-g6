@@ -1,6 +1,6 @@
 //https
 const https = require('https');
-// const apiurl ='https://jsonplaceholder.typicode.com/photos?_limit=5'
+apiurl ='https://jsonplaceholder.typicode.com/photos?_limit=5'
 //https://newsapi.org/v2/top-headlines?apiKey=702e9ad75b684b2ba13de7a0b5cf6ba3
 //country=us
 //category=business&
@@ -19,7 +19,7 @@ let myReq = (attributes, cb)=>{
         response.on('end',()=>{
            // console.log(data)
            data= JSON.parse(data)
-            cb(false, data)
+            cb(false, data)  
         })
     })
     request.on('error', (error)=>{

@@ -1,13 +1,19 @@
-menna , mark, doaa
-alaa, ali, zainb
-abd allah
-ahmed khaled hasan, yousef
-mustafa, huda
-ahmed magdy, kareem
+menna , mark, doaa => medical
+alaa, ali, zainb => bus reservation
+abd allah => multivendor
+ahmed khaled hasan, yousef , ahmed abd el mon3m => medical
+mustafa, huda,ahmed khaled ahmed => medical
+ahmed magdy=> medical
+sherif => elearning
+kareem => multivendor
 
-ahmed khaled ahmed
-ahmed abd el mon3m
-sherif
+
 
 next tracks (web)
 - php
+
+=> ticket system, 
+=> mangment system
+- medical, ticket, directories, communites, elearning
+
+multivendor ecommerce

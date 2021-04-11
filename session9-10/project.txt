@@ -9,7 +9,7 @@ menu elements category, items[{
 }]
 resturants => name, type, tables [
     table:{
-        table name, numOfSeats
+        table name, numOfSeats, reservedDays:[{days: date}]
     },
     rate
 ]
@@ -48,7 +48,26 @@ add/reservation =>3
 add/...
 
 
+marwa hi
+nouran hi
+nouran ezyek
+marwa el7 
+
+marwa hi
+mazen hi
 
 
 
 routes , usersTypes
+
+
+
+messages
+marwa => msgs [] => sender , data , time
+nouran => msgs [] => sender , data, time
+
+
+
+
+chat_id =>  1  marwa  nouran [sender marwa, data hi, time -----, marwaStatus:deleted, nouran status:true] 
+            2 marwa  mazen [sender   data time]
