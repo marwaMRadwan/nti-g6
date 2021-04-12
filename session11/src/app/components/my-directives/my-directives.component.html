@@ -1,0 +1,20 @@
+<section class="container my-3 justify-conent-center">
+    <input class="col-6" placeholder="monthNumber" [(ngModel)]="monNum">
+    <div [ngSwitch]="monNum">
+        <div *ngIf="monNum">
+            <ng-container *ngFor="let mon of months; let i = index">
+                <div *ngSwitchCase = "mon.val">{{mon.monthName}}</div>
+            </ng-container>
+            <div *ngSwitchDefault>not found</div>    
+        </div>
+<!-- <ng-template #elseData>not used yet</ng-template> -->
+    </div>
+
+    <!-- <div class="alert alert-danger" *ngIf="data.length==0;else dataFound">no data found</div>
+    <ng-template #dataFound>
+        <ul>
+            <li *ngFor="let x of data">x</li>
+        </ul>
+    </ng-template> -->
+</section>
+<section [ngClass]="{x:true, u:false}"></section>

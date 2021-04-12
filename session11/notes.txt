@@ -8,3 +8,13 @@
 
 data binding ts <=> html
 - interpolation  one way binding   logic file(api, array, storage ) .ts ==> html  {{variable}}
+- property binding
+- class binding
+- attr binding
+- template ref
+- events
+- two way
+directives
+- ngFor
+- ngSwitch
+- ngIf else
