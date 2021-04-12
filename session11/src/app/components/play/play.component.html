@@ -1,0 +1,62 @@
+<!-- <section class="container">
+    <h3>Interpolation</h3>
+    {{x}} <br> {{getData()}} <br> {{5+3}}
+    <div style.color={{c}}>hello</div>
+    <img src="{{c}}">
+    <hr>
+    <h3>template ref var</h3>
+    <input (keyup)="0" #name>
+    {{name.value}}
+    <h3> ngfor directive</h3>
+    {{data}}
+    <ul>
+        <li *ngFor="let ele of data">
+            {{ele}}
+        </li>
+    </ul>
+    {{users}}
+    <ul>
+        <li *ngFor="let ele of users">
+            {{ele.name}} - {{ele.age}}
+        </li>
+    </ul>
+    <h3>property binding</h3>
+    <p [innerHtml]= "d"></p>
+    <input [disabled]="status">
+    <h3>className property binding</h3>
+    <div [className]="'x'"></div>
+    <div [className]="getCName()"></div>
+    <div [className]="status? 'x':'y'"></div>
+    <div [class.x]="status" [class.y]="!status"></div>
+    <h3>style binding</h3>
+    <div [style.color]="'blue'" [style.background-color]="'red'">hello</div>
+    <h3>event binding</h3> -->
+    <!-- (event)="fun" -->
+    <!-- <div>{{counter}} <button class="btn btn-primary" (click)="increaseCounter();">+</button></div>
+
+    <div class="alert alert-success">
+        <input placeholder="enter data" (input)="handelMyInput($event)">
+        <p>{{val}}</p>
+<hr>
+        <input #myData (input)="handelInputRef(myData)">
+        <p>{{myData1}}</p>
+    </div>
+
+    <hr>
+    <h3>Two way binding</h3>
+    <input [(ngModel)]="val">
+    <p>{{val}}</p>
+</section> -->
+<section class="container my-4">
+    <div class="row">
+        <article class="col-4 p-5 my-2" *ngFor="let post of posts; let i = index; let o=odd; let e=even">
+            <div class="row border border-success border-3"
+            [ngClass]="{x:o, y:e, z:true}"
+            >
+                <span>{{i}} - {{o}} - {{e}}</span>
+                <h4>{{post.title}}</h4>
+                <p>{{post.body}}</p>
+            </div>
+</article>
+    </div>
+</section>

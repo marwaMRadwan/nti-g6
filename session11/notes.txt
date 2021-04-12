@@ -1,0 +1,10 @@
+-create new app => ng new appName
+- install bootstrap and add in angular.json or add cdn in index.html
+- create new components 
+    ng g c cName => ng g c components/play
+-show component inside app component
+    inside app.component.html => <app-play></app-play>
+- to run app => ng s if   we need to auto open browser ng s -o
+
+data binding ts <=> html
+- interpolation  one way binding   logic file(api, array, storage ) .ts ==> html  {{variable}}
