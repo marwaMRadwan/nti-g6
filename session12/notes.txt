@@ -1,0 +1,13 @@
+- pipes => done
+
+- communication between components
+    -input = parent => child =>done
+    -output = child => parent => skipped
+
+components life cycle
+
+- get data from api
+
+-forms
+- template driven forms
+- reactive form
