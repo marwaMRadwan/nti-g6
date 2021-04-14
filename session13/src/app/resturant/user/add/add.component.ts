@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { GlobalService } from 'src/app/services/global.service';
 
 @Component({
@@ -17,15 +18,29 @@ export class AddComponent implements OnInit {
     area:"",
     image:""
   }
-  constructor(private _global:GlobalService) { }
-
+  constructor(private _global:GlobalService, private _router:Router) { }
+msg=""
+resStatus:Boolean = false
   ngOnInit(): void {
   }
 handelAddUser(){
   console.log(this.userData)
 
   this._global.addRestUser(this.userData).subscribe(
-  res=>console.log(res)
+  res=>{
+    console.log(res)
+    this.msg=''
+    this.resStatus=false
+  },
+  (error)=>{
+    console.log(error.error.data)
+    this.msg = error.error.data;
+    this.resStatus=true
+  },
+  ()=>{
+    console.log('done')
+    this._router.navigate(['shop'])
+  }
 )
 }
 }
