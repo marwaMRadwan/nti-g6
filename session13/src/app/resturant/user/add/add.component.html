@@ -1,0 +1,35 @@
+<section class="container my-5 border border-primary border-3 rounded p-5">
+      <form #register='ngForm' (ngSubmit)="handelAddUser()" enctype="application/x-www-form-urlencoded">
+          <div class="mb-3">
+              <label class="form-label">Name</label>
+              <input class="form-control" [(ngModel)]="userData.name" #name="ngModel" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">phone</label>
+              <input class="form-control" [(ngModel)]="userData.phone" [ngModelOptions]="{standalone: true}">
+            </div>
+          <div class="mb-3">
+            <label class="form-label">Email address</label>
+            <input class="form-control" name="email" [(ngModel)]='userData.email'>
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input  class="form-control" name="password" [(ngModel)] ="userData.password">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">bDay</label>
+            <input  class="form-control" name="bDat" [(ngModel)] ="userData.bDay" type="date">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">area</label>
+            <input  class="form-control" name="password" [(ngModel)] ="userData.area">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">image</label>
+            <input  class="form-control" name="password" [(ngModel)] ="userData.image" type="file">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <p class="my-1">if you  have account <span routerLink="" class="text-primary">Login</span></p>
+  </section>

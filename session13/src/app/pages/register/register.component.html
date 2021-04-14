@@ -1,21 +1,40 @@
 <section class="container my-5 border border-primary border-3 rounded p-5">
-    <form>
+  <div>
+    <p>value : {{register.value|json}}</p>
+    <p>valid : {{register.valid}}</p>
+    <p>invalid : {{register.invalid}}</p>
+    <p>touched : {{register.touched}}</p>
+    <p>submitted : {{register.submitted}}</p>
+
+  </div>
+    <form #register='ngForm' (ngSubmit)="handelRegister()">
         <div class="mb-3">
             <label class="form-label">First Name</label>
-            <input class="form-control">
+            <input class="form-control" [(ngModel)]="user.fname" #fname="ngModel" [ngModelOptions]="{standalone: true}">
+            <p>{{fname.value}}</p>
+            <p>{{fname.dirty}}</p>
+            <p>{{fname.touched}}</p>
+            <p>{{fname.valid}}</p>
           </div>
           <div class="mb-3">
             <label class="form-label">Last Name</label>
-            <input class="form-control">
+            <input class="form-control" [(ngModel)]="user.lname" [ngModelOptions]="{standalone: true}">
           </div>
         <div class="mb-3">
           <label class="form-label">Email address</label>
-          <input class="form-control">
+          <input class="form-control" name="email" [(ngModel)]='user.email'>
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input  class="form-control">
+          <input  class="form-control" name="password" [(ngModel)] ="user.password">
         </div>
+        <div class="mb-3" ngModelGroup="address">
+          <label for="exampleInputPassword1" class="form-label">Country</label>
+          <input  class="form-control" name="country" [(ngModel)]="user.address.country">
+          <label for="exampleInputPassword1" class="form-label">City</label>
+          <input  class="form-control" name="city" [(ngModel)]="user.address.city">
+        </div>
+        
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
       <p class="my-1">if you  have account <span routerLink="" class="text-primary">Login</span></p>

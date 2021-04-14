@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/interfaces/user';
 import { GlobalService } from 'src/app/services/global.service';
 
 @Component({
@@ -8,11 +9,22 @@ import { GlobalService } from 'src/app/services/global.service';
 })
 export class RegisterComponent implements OnInit {
 
+  user: User = {
+    fname:'',
+    lname:'',
+    email:'',
+    password:'',
+    address:{country:"", city:""}
+  }
   constructor(public _global:GlobalService) {
     _global.navStatus=false
    }
 
   ngOnInit(): void {
+  }
+  handelRegister(){
+    console.log(this.user)
+    this._global.handelForm(this.user)
   }
 
 }
