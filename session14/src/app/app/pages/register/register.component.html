@@ -1,22 +1,28 @@
-<form [formGroup]="myData" (ngSubmit)="addMe()">
-    <input type="text" formControlName="name" class="form-control">
-    <input type="text" formControlName="name_ar" class="form-control">
-    <input type="text" formControlName="address" class="form-control">
-    <input type="text" formControlName="address_ar" class="form-control">
-    <input type="text" formControlName="email" class="form-control">
-    <input type="text" formControlName="password" class="form-control">
-    <input type="text" formControlName="gender" class="form-control">
-    <input type="text" formControlName="phone" class="form-control">
-    <input type="text" formControlName="price" class="form-control">
-    <input type="text" formControlName="role" class="form-control">
-    <input type="text" formControlName="location" class="form-control">
-
-    <ng-select formControlName="governorate" class="form-control" (change)="chnggov()">
-        <ng-option *ngFor="let gov of allGov" [value]="gov.id">{{gov.governorateName}}</ng-option>
-     </ng-select>
-     <ng-select formControlName="city" class="form-control">
-        <ng-option *ngFor="let city of allCities" [value]="city.id">{{city.city}}</ng-option>
-     </ng-select>
-    <button>add</button>
-</form >
+<section class="container border border-danger border-3 rounded my-5 p-3">
+    <form [formGroup]="myData" (ngSubmit)="addMe()">
+        <input type="text" formControlName="name" class="form-control my-2 my-2 my-2" placeholder="name">
+        <input type="text" formControlName="name_ar" class="form-control my-2" placeholder="arabic name">
+        <input type="text" formControlName="address" class="form-control my-2" placeholder="address">
+        <input type="text" formControlName="address_ar" class="form-control my-2" placeholder="arabic address">
+        <input type="text" formControlName="email" class="form-control my-2" placeholder="email">
+        <input type="text" formControlName="password" class="form-control my-2" placeholder="password">
+        <ng-select formControlName="gender" class="form-control my-2" placeholder="gender">
+            <ng-option value="0">Male</ng-option>
+            <ng-option value="1">Female</ng-option>
+         </ng-select>
+        <input type="text" formControlName="phone" class="form-control my-2" placeholder="phone">
+        <input type="text" formControlName="price" class="form-control my-2" placeholder="price">
+        <ng-select formControlName="role" class="form-control my-2" placeholder="role">
+            <ng-option *ngFor="let role of roles" [value]="role.id">{{role.title}}</ng-option>
+         </ng-select>
+        <input type="text" formControlName="location" class="form-control my-2" placeholder="location">
+        <ng-select formControlName="governorate" class="form-control my-2" (change)="chnggov()" placeholder="governorate">
+            <ng-option *ngFor="let gov of allGov" [value]="gov.id">{{gov.governorateName}}</ng-option>
+         </ng-select>
+         <ng-select placeholder="city" formControlName="city" class="form-control my-2">
+            <ng-option *ngFor="let city of allCities" [value]="city.id">{{city.city}}</ng-option>
+         </ng-select>
+        <button class="btn btn-danger">add</button>
+    </form >    
+</section>
  

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { GlobalService } from 'src/app/services/global.service';
 
 @Component({
@@ -10,6 +12,7 @@ import { GlobalService } from 'src/app/services/global.service';
 export class RegisterComponent implements OnInit {
   allGov = []
   allCities = []
+  roles =[]
   myData = new FormGroup({
     governorate:new FormControl('',[Validators.required]),
     city:new FormControl(),
@@ -25,8 +28,9 @@ export class RegisterComponent implements OnInit {
     gender:new FormControl(),
     location:new FormControl()
   })
-  constructor(private _global:GlobalService) { 
+  constructor(private _global:GlobalService, private toastr: ToastrService, private router:Router) { 
     this.getGovData()
+    this.getRolesData()
   }
   ngOnInit(): void {
   }
@@ -34,11 +38,21 @@ export class RegisterComponent implements OnInit {
   get city(){return this.myData.get('city')}
 
   getGovData(){ this._global.getGov().subscribe(res=>{ this.allGov= res.data}) }
+  getRolesData(){ this._global.getRoles().subscribe(res=>{ this.roles= res.data}) }
   chnggov(){
     this.allCities= []
     this._global.getCities(this.governorate.value).subscribe(res=>{ this.allCities = res.data })
   }
   addMe(){
-    console.log(this.myData.value)
+    this._global.register(this.myData.value).subscribe(
+      res=>console.log(res)
+      , (err)=>console.log(err)
+      ,()=>{    
+        this.toastr.success('Done');
+        setTimeout(() => {
+          this.router.navigateByUrl('login');
+      }, 1500);  //5s
+      }
+    )
   }
 }

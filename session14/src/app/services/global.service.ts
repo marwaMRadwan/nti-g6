@@ -13,4 +13,10 @@ export class GlobalService {
   getCities(id:number):Observable<any>{
     return this._http.get(`http://medical.mind-techs.com/api/GetCity/${id}/1`)
   }
+  getRoles():Observable<any>{
+    return this._http.get('http://localhost/ECommerce/api/auth/loadRoles/1')
+  }
+  register(data):Observable<any>{
+    return this._http.post('http://medical.mind-techs.com/api/auth/signUp', data)
+  }
 }

@@ -12,7 +12,10 @@ import { NavComponent } from './app/shared/nav/nav.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { SelectDropDownModule } from 'ngx-select-dropdown'
 import { NgSelectModule } from '@ng-select/ng-select';
-
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { LoginComponent } from './app/pages/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +23,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     FBuilderComponent,
     RegisterComponent,
     HomeComponent,
-    NavComponent
+    NavComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,10 @@ import { NgSelectModule } from '@ng-select/ng-select';
     HttpClientModule,
     CarouselModule.forRoot(),
     SelectDropDownModule,
-    NgSelectModule
+    NgSelectModule,
+    CommonModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [],
   bootstrap: [AppComponent]
