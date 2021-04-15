@@ -45,8 +45,10 @@ export class RegisterComponent implements OnInit {
   }
   addMe(){
     this._global.register(this.myData.value).subscribe(
-      res=>console.log(res)
-      , (err)=>console.log(err)
+      res=>{
+        console.log(res)
+      }
+      , (err)=>{console.log(err)}
       ,()=>{    
         this.toastr.success('Done');
         setTimeout(() => {
