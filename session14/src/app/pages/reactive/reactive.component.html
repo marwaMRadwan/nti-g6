@@ -1,0 +1,23 @@
+{{myForm.value|json}}
+{{myForm.valid}}
+<div *ngIf="!myForm.valid">
+    check your inputs
+</div>
+<form [formGroup]="myForm" (ngSubmit)="formSubmit()">
+    <input placeholder="name" formControlName="name">
+    <div *ngIf = "name?.invalid && (name.dirty || name.touched || isSubmitted)">
+        <p *ngIf="name?.errors?.required">required</p>
+        <p *ngIf="name?.errors?.pattern">pattern invalid</p>
+    </div>
+    <br>
+    <input placeholder="email" formControlName="email">
+    <br>
+    <input placeholder="country" formControlName="country">
+    <br>
+    <input placeholder="password"  formControlName="password">
+    <br>
+    <div formGroupName="address">
+        <input formControlName="city">
+    </div>
+    <button type="submit" >add</button>
+</form>

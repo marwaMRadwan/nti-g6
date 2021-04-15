@@ -1,0 +1,10 @@
+<p>f-builder works!</p>
+{{myForm.value|json}}
+<form [formGroup]="myForm" (ngSubmit)="handelForm()">
+    <input formControlName="name">
+    <div *ngIf="name.invalid"></div>
+    <input formControlName="email">
+    <div formGroupName="address">
+    <input formControlName="country">
+</div>
+</form>

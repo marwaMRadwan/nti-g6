@@ -1,0 +1,4 @@
+import reactive forms module =>app module
+component => model 
+form group => form controls
+html=> create form form group = each input form control name
