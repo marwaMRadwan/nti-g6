@@ -17,4 +17,10 @@ export class GlobalService {
   getSliders():Observable<any>{
     return this._http.get(`${this.globalUrl}Slider/List`)
   }
+  getNewsHomePage():Observable<any>{
+    return this._http.get(`${this.globalUrl}News/List?jtStartIndex=0&jtPageSize=4&newsTypeId=0`)
+  }
+  registerUser(data:any):Observable<any>{
+    return this._http.post(`${this.globalUrl}account/Register`, data)
+  }
 }

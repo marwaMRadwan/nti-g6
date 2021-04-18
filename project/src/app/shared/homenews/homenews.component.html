@@ -1,0 +1,15 @@
+<section class="container my-4">
+    <h1 class="text-center my-3 text-danger py-4">أحدث الأخبار</h1>
+    <div class="row">
+        <div class=" col-3 "  *ngFor="let art of news">
+            <div class="p-0 card ">
+            <img [src]="art.image" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{art.title|slice:0:70}}</h5>
+              <p class="card-text">{{art.shortDescription|slice:0:50}}</p>
+              <a routerLink="#" class="btn btn-primary">المزيد</a>
+            </div>
+        </div>
+          </div>
+    </div>
+</section>
