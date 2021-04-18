@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalService } from 'src/app/services/global.service';
 
 @Component({
   selector: 'app-pedia',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pedia.component.css']
 })
 export class PediaComponent implements OnInit {
-
-  constructor() { }
+  p: number = 1;
+  collection: any[] = [];  
+  constructor(private _global:GlobalService) { }
 
   ngOnInit(): void {
+    this._global.getPedia().subscribe(res=>{
+      this.collection= res.result
+    })
   }
 
 }

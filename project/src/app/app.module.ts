@@ -19,6 +19,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { HomenewsComponent } from './shared/homenews/homenews.component';
 import { PadiacatComponent } from './pages/padiacat/padiacat.component';
 import { SinglearticleComponent } from './pages/singlearticle/singlearticle.component';
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { SinglearticleComponent } from './pages/singlearticle/singlearticle.comp
     HttpClientModule,
     FormsModule, 
     ReactiveFormsModule,
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    NgxPaginationModule
   ],
   providers: [
     {

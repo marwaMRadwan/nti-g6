@@ -1,1 +1,5 @@
-<p>pedia works!</p>
+<ul>
+    <li *ngFor="let item of collection | paginate: { itemsPerPage: 2, currentPage: p }"> {{item.title}} </li>
+  </ul>
+
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
