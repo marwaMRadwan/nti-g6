@@ -24,7 +24,7 @@ export class GlobalService {
     return this._http.post(`${this.globalUrl}account/Register`, data)
   }
   //http://198.12.225.205:8090/API/ZamalekMedia/ListCategory?jtStartIndex=0&jtPageSize=10
-  getPedia():Observable<any>{
-    return this._http.get(`http://198.12.225.205:8090/API/ZamalekMedia/ListCategory?jtStartIndex=0&jtPageSize=10`)
+  getPedia(pNum):Observable<any>{
+    return this._http.get(`http://198.12.225.205:8090/API/ZamalekMedia/ListCategory?jtStartIndex=${pNum*5}&jtPageSize=5`)
   }
 }
