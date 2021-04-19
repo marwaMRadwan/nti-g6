@@ -1,0 +1,7 @@
+doctor => id, name, spcialize, password, address, userName
+
+insert
+get all
+get single doctor
+edit doctor
+delete doctor
