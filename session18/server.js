@@ -8,19 +8,19 @@ const server = http.createServer(app);
 const io = require('socket.io')(server, {
   cors: {
     origin: '*',
-    methods: ["GET", "POST"]
+    methods: '*'
   }});
 io.on('connection', (socket) => {
  
-    console.log('a user connected');
+    // console.log('a user connected');
  
     // socket.on('disconnect', () => {
     //   console.log('user disconnected');
     // });
  
     socket.on('msg', (msg) => {
-      console.log(msg);
-      socket.emit('message-broadcast', msg);
+      // console.log(msg);
+      socket.broadcast.emit('message-broadcast', msg);
     });
  
 });
