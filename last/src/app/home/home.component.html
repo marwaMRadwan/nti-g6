@@ -1,0 +1,7 @@
+<p>home works!</p>
+<div *ngIf="!isLoaded" class="alert alert-danger">
+    loading
+</div>
+<div *ngIf="isLoaded">
+{{data|json}}
+</div>
