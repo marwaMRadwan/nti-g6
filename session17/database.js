@@ -8,21 +8,21 @@ const db = new sqlite3.Database(dbSource, (err)=>{
     }
     else{
         console.log('conntected')
-        // db.run(`CREATE TABLE user(
+        // db.run(`CREATE TABLE task(
         //     id INTEGER PRIMARY KEY AUTOINCREMENT,
-        //     name TEXT,
-        //      email TEXT UNIQUE,
-        //       pass TEXT,
-        //       CONSTRAINT email_unique UNIQUE(email)
+        //     title TEXT,
+        //     userId Integer NOT NULL,
+        //     FOREIGN KEY(userId) REFERENCES user(id)
         // )`),
         // (err)=>{
-        //     if(err){console.log('table already created')}
+        //     if(err){return console.log('table already created')}
         //     else{
+        //     }
                 // const insert ="INSERT INTO user (name, email,pass) VALUES (?,?,?)"
                 // db.run(insert, ["marwa", "marwa@test.com", md5('123456')])
                 // console.log('done')
         //     }
-        // }
+    //     }
     }
 })
 module.exports = db

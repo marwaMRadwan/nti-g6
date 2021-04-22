@@ -1,6 +1,8 @@
 const express = require('express')
 const multer = require('multer')
 const app = express()
+const cors = require('cors')
+app.use(cors())
 app.use(express.urlencoded())
 
 app.get('/', (req, res)=>{
@@ -19,7 +21,7 @@ app.post('/upload/photo', upload.array('myFile'),(req, res, next)=>{
  try{
     const file = req.files
     console.log(file)
-    if(!file) return res.send('error')
+    if(!file) return res.send({e:'error'})
     res.send(file)
  }
  catch(e){res.send(e)}

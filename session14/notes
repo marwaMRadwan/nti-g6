@@ -2,3 +2,15 @@ import reactive forms module =>app module
 component => model 
 form group => form controls
 html=> create form form group = each input form control name
+
+
+- components 
+- binding 
+- directives (ngfor, ngif, ng switch, ng style, ng class)
+-pipes
+- http request
+-input
+-service depency
+-interceptors
+-form (reactive, template driven- validation)
+-life cycle hooks

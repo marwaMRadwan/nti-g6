@@ -23,24 +23,27 @@ msg=""
 resStatus:Boolean = false
   ngOnInit(): void {
   }
-handelAddUser(){
+handelAddUser(register){
   console.log(this.userData)
-
+if(register.valid){
   this._global.addRestUser(this.userData).subscribe(
-  res=>{
-    console.log(res)
-    this.msg=''
-    this.resStatus=false
-  },
-  (error)=>{
-    console.log(error.error.data)
-    this.msg = error.error.data;
-    this.resStatus=true
-  },
-  ()=>{
-    console.log('done')
-    this._router.navigate(['shop'])
-  }
-)
+    res=>{
+      console.log(res)
+      this.msg=''
+      this.resStatus=false
+    },
+    (error)=>{
+      console.log(error.error.data)
+      this.msg = error.error.data;
+      this.resStatus=true
+    },
+    ()=>{
+      console.log('done')
+      this._router.navigate(['shop'])
+    }
+  )
+  
+}
+else{console.log('invalid data')}
 }
 }

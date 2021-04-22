@@ -57,6 +57,20 @@ app.patch("/allUsers/:id", (req,res)=>{
         }
     )
 })
+app.post('/addTask/:userId', (req,res)=>{
+    //title/userid
+    db.run("Insert into task ('title', 'userId') Values (?,?)",
+    [req.body.title, req.params.userId],
+    function(err, result){
+        if(err) return res.send(err.message)
+        res.send(result)
+    })
+})
+app.get('/allTasks', (req,res)=>{
+    db.all('SELECT * FROM task',[],(err,data)=>{
+        res.send(data)
+    })
+})
 app.use(function(req,res){
     res.status(404).send()
 })

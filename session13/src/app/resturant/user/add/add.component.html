@@ -1,13 +1,18 @@
 <section class="container my-5 border border-primary border-3 rounded p-5">
     <div [ngClass]="{'alert':true, 'alert-danger':resStatus}">{{msg}}</div> 
-    <form #register='ngForm' (ngSubmit)="handelAddUser()" enctype="application/x-www-form-urlencoded">
+    <form #register='ngForm' (ngSubmit)="handelAddUser(register)" enctype="application/x-www-form-urlencoded">
           <div class="mb-3">
               <label class="form-label">Name</label>
-              <input class="form-control" [(ngModel)]="userData.name" #name="ngModel" [ngModelOptions]="{standalone: true}">
+              <input class="form-control" [(ngModel)]="userData.name" #name="ngModel" name="name" 
+              required minlength="5" maxlength="15" > 
+              <div *ngIf="name.invalid && (name?.touched || name?.dirty)" class="alert alert-danger">
+                  <div *ngIf="name?.errors?.required">name is required</div>
+                  <div *ngIf="name?.errors?.minlength">name is min 5 chars</div>
+              </div>
             </div>
             <div class="mb-3">
               <label class="form-label">phone</label>
-              <input class="form-control" [(ngModel)]="userData.phone" [ngModelOptions]="{standalone: true}">
+              <input class="form-control" [(ngModel)]="userData.phone" name="phone" #phone="ngModel">
             </div>
           <div class="mb-3">
             <label class="form-label">Email address</label>
